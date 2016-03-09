@@ -4,12 +4,11 @@
 class Liczba 
 {
 	static const int CYFR_PO_PRZECINKU=4;
-	public:
-		Liczba();
-		~Liczba();
-		int czescCalkowita;
+int czescCalkowita;
 		int czescUlamkowa;
-		double utworzLiczbe(); // tworzenie liczby ulamkowej z dwoch calkowitych
-	private:
-};
+	public:
+		Liczba(int=0,int=0);
+		~Liczba();
+				//double utworzLiczbe(); // tworzenie liczby ulamkowej z dwoch calkowitych
+};,
 #endif //LICZBA_H_
