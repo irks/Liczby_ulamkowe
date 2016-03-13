@@ -68,15 +68,71 @@ Liczba operator-(Liczba& odjemna, Liczba& odjemnik) {
 	return odjemna + przeciwnyOdjemnik;
 };
 
-Liczba operator*(Liczba& , Liczba&) {
-	int cecha;
-	int mantysa;
-
-
+Liczba operator*(Liczba& pierwsza, Liczba& druga) {
+	int cecha1Bezwzgledna, cecha2Bezwzgledna;
+	bool zmianaZnaku=false;
+	
+	if(pierwsza.calkowita<0 && druga.calkowita>=0  ) {
+		cecha1Bezwzgledna= -(pierwsza.calkowita);
+		cecha2Bezwzgledna= druga.calkowita;
+		zmianaZnaku=true;
+	}
+	else if(pierwsza.calkowita>=0 && druga.calkowita<0) {
+		cecha1Bezwzgledna= pierwsza.calkowita;
+		cecha2Bezwzgledna= -(druga.calkowita);
+		zmianaZnaku=true;
+	}
+	else if(pierwsza.calkowita<0 && druga.calkowita<0) {
+		cecha1Bezwzgledna= -(pierwsza.calkowita);
+		cecha2Bezwzgledna= -(druga.calkowita);
+	}
+	else {
+		cecha1Bezwzgledna= pierwsza.calkowita;
+		cecha2Bezwzgledna= druga.calkowita;
+	}
+	int sumaPierwszej = cecha1Bezwzgledna*pow(10,PRECYZJA) + pierwsza.ulamkowa;
+	int sumaDrugiej = cecha2Bezwzgledna*pow(10,PRECYZJA) + druga.ulamkowa;
+	int iloczynSum = sumaPierwszej*sumaDrugiej;
+	int mantysa = iloczynSum/pow(10,PRECYZJA);
+	mantysa %= int(pow(10, PRECYZJA));
+	int cecha = iloczynSum/pow(10, 2*PRECYZJA);
+	if(zmianaZnaku)
+		cecha = -cecha;
+	return Liczba(cecha,mantysa);
 }
 
-Liczba operator/(Liczba& , Liczba&) {
-	
+Liczba operator/(Liczba& pierwsza, Liczba& druga) {
+	int cecha1Bezwzgledna, cecha2Bezwzgledna;
+	bool zmianaZnaku=false;
+
+	if(pierwsza.calkowita<0 && druga.calkowita>=0  ) {
+		cecha1Bezwzgledna= -(pierwsza.calkowita);
+		cecha2Bezwzgledna= druga.calkowita;
+		zmianaZnaku=true;
+	}
+	else if(pierwsza.calkowita>=0 && druga.calkowita<0) {
+		cecha1Bezwzgledna= pierwsza.calkowita;
+		cecha2Bezwzgledna= -(druga.calkowita);
+		zmianaZnaku=true;
+	}
+	else if(pierwsza.calkowita<0 && druga.calkowita<0) {
+		cecha1Bezwzgledna= -(pierwsza.calkowita);
+		cecha2Bezwzgledna= -(druga.calkowita);
+	}
+	else {
+		cecha1Bezwzgledna= pierwsza.calkowita;
+		cecha2Bezwzgledna= druga.calkowita;
+	}
+
+	int sumaPierwszej = cecha1Bezwzgledna*pow(10,PRECYZJA) + pierwsza.ulamkowa;
+	int sumaDrugiej = cecha2Bezwzgledna*pow(10,PRECYZJA) + druga.ulamkowa;
+	int cecha = sumaPierwszej/sumaDrugiej;
+	int mantysaModulo=sumaPierwszej%sumaDrugiej;
+	int mantysa = mantysaModulo/sumaDrugiej;
+	mantysa= mantysa*int(pow(10,PRECYZJA));
+	if(zmianaZnaku)
+		cecha = -cecha;
+	return Liczba(cecha,mantysa);	
 }
 
 bool operator==(Liczba& pierwsza, Liczba& druga) {
