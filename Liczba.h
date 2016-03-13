@@ -1,14 +1,24 @@
-#ifndef LICZBA_H_
-#define LICZBA_H_
+//#ifndef LICZBA_H_
+//#define LICZBA_H_
 
 class Liczba 
-{
-	static const int CYFR_PO_PRZECINKU=4;
-int czescCalkowita;
-		int czescUlamkowa;
+{ //domyslnie private
+	int calkowita;
+	int ulamkowa;
+	
+	
 	public:
 		Liczba(int=0,int=0);
 		~Liczba();
-				//double utworzLiczbe(); // tworzenie liczby ulamkowej z dwoch calkowitych
-};,
-#endif //LICZBA_H_
+		void wyswietlLiczbe();
+		friend Liczba operator+(Liczba&, Liczba&);
+		friend Liczba operator-(Liczba&, Liczba&);
+		friend Liczba operator*(Liczba&, Liczba&);
+		friend Liczba operator/(Liczba&, Liczba&);
+		friend bool operator==(Liczba&, Liczba&);
+		friend bool operator>(Liczba&, Liczba&);
+		friend bool operator<(Liczba&, Liczba&);
+		friend Liczba operator-(Liczba&);
+		Liczba &operator=(Liczba&);
+};
+//#endif //LICZBA_H_
