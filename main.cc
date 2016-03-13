@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Liczba.h"
+#include <cmath>
 
 using namespace std;
 
@@ -91,6 +92,17 @@ int main() {
 	cout << "-1,1000 --2,2000 =1,1   ";(J-K).wyswietlLiczbe(); 
 	cout << "-1,3000 --2,8000 =1,5   ";(L-M).wyswietlLiczbe(); 
 
+	cout << endl<<endl<<"2,5000 *1,2000 =3      "; (A*B).wyswietlLiczbe(); 
+	cout << "2,5000 *1,7000 =4,25      ";(A*C).wyswietlLiczbe(); 
+	cout << "0,1000 *0,9900 =0,099     ";(D*E).wyswietlLiczbe();  
+	cout << "1,0200 *1,0030 =1,02306   ";(F*G).wyswietlLiczbe(); 
+
+	cout << "-1,1000 *-2,2000 =2,42   ";(J*K).wyswietlLiczbe(); 
+	cout << "-1,3000 *-2,8000 =3,64   ";(L*M).wyswietlLiczbe(); 
+	cout << "1,3000 *-1,8000 =-2,34    "; (N*O).wyswietlLiczbe(); 
+	cout << "-1,3000 * 1,8000=-2,34     "; (L*P).wyswietlLiczbe(); 
+	cout << "-2,3000 * 1,8000=-4,14    "; (R*P).wyswietlLiczbe(); 
+
 	if(A==B)
 		cout<<"rowne" << endl;
 	else
@@ -116,6 +128,16 @@ int main() {
 		cout<<"wieksze" << endl;
 	else
 		cout<<"mniejsze" << endl;
+
+	cout << "2,5000 /1,7000 =1,4705      ";(A/C).wyswietlLiczbe(); 
+	cout << "0,1000 /0,9900 =0,(10)     ";(D/E).wyswietlLiczbe();  
+	cout << "1,0200 /1,0030 =1,0169   ";(F/G).wyswietlLiczbe(); 
+
+	cout << "-1,1000 /-2,2000 =0,5   ";(J/K).wyswietlLiczbe(); 
+	cout << "-1,3000 /-2,8000 =0,4642   ";(L/M).wyswietlLiczbe(); 
+	cout << "1,3000 /-1,8000 =-0,7222    "; (N/O).wyswietlLiczbe(); 
+	cout << "-1,3000 / 1,8000=0,7222     "; (L/P).wyswietlLiczbe(); 
+	cout << "-2,3000 / 1,8000=1,27777    "; (R/P).wyswietlLiczbe(); 
 }
 
 
