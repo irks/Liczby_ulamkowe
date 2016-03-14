@@ -1,10 +1,138 @@
 #include <iostream>
-#include "Liczba.h"
 #include <cmath>
+#include "Liczba.h"
 
 using namespace std;
 
+void wypiszMenu(void);
 bool menu = true;
+
+
+
+int main() {
+	while(menu)
+		wypiszMenu();
+	double a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,r,s;
+	Liczba A(2,5000); a=2.5;
+	Liczba B(1,2000);b=1.2;
+	Liczba C(1,7000);c=1.7;
+	Liczba D(0,1000);d=0.1;
+	Liczba E(0,9900);e=0.99;
+	Liczba F(1,200);f=1.02;
+	Liczba G(1,30);g=1.003;
+	Liczba H(-1,-5000);h=-1.5;
+	Liczba I(1,6000);i=1.6;
+	Liczba J(-1,-1000);j=-1.1;
+	Liczba K(-2,-2000);k=-2.2;
+	Liczba L(-1,-3000);l=-1.3;
+	Liczba M(-2,-8000);m=-2.8;
+	Liczba N(1,3000);n=1.3;
+	Liczba O(-1,-8000);o=-1.8;
+	Liczba P(1,8000);p=1.8;
+	Liczba R(-2,-3000);r=-2.3l;
+	Liczba S(0,-200);s=-0.02;
+	
+	if(A==B)
+		cout<<"rowne" << endl;
+	else
+		cout<<"rozne" << endl;
+	if(J==K)
+		cout<<"rowne" << endl;
+	else
+		cout<<"rozne" << endl;
+	if(O==O)
+		cout<<"rowne" << endl;
+	else
+		cout<<"rozne" << endl;
+
+	if(A>B)
+		cout<<"wieksze (wieksze)" << endl;
+	else
+		cout<<"mniejsze (wieksze)" << endl;
+	if(J>K)
+		cout<<"wieksze (wieksze)" << endl;
+	else
+		cout<<"mniejsze (wieksze)" << endl;
+	if(O>O)
+		cout<<"wieksze" << endl;
+	else
+		cout<<"mniejsze" << endl;
+ 
+	cout << "---------------------dodawanie-----------------------" << endl;
+
+	cout << d+b <<"   "; 			(D+B).wyswietlLiczbe(); cout<<endl; 
+	cout << g+c<<"   ";			(G+C).wyswietlLiczbe(); cout<<endl;
+	cout << a+e<<"   ";			(A+E).wyswietlLiczbe();  cout<<endl;
+	cout << f+g<<"   ";			(F+G).wyswietlLiczbe(); cout<<endl;
+	cout << o+i<<"   "; 			(O+I).wyswietlLiczbe(); cout<<endl;
+	cout << j+k<<"   ";			(J+K).wyswietlLiczbe(); cout<<endl;
+	cout << m+m<<"   ";			(M+M).wyswietlLiczbe(); cout<<endl;
+	cout << n+r<<"   "; 			(N+R).wyswietlLiczbe(); cout<<endl;
+	cout << l+b<<"   "; 			(L+B).wyswietlLiczbe(); cout<<endl;
+	cout << g+p<<"   "; 			(G+P).wyswietlLiczbe();cout<<endl;
+	cout << s+e<<"   ";			(S+E).wyswietlLiczbe(); cout<<endl;
+	cout << e+s<<"   ";			(E+S).wyswietlLiczbe(); cout<<endl;
+	cout << i+s<<"   "; 			(I+S).wyswietlLiczbe(); cout<<endl;
+	cout << e+h<<"   "; 			(E+H).wyswietlLiczbe(); cout<<endl;
+	cout << s+g<<"   "; 			(S+G).wyswietlLiczbe();cout<<endl;
+
+	cout << "----------------odejmowanie----------------------------" << endl;
+
+	cout << d-b <<"   "; 			(D-B).wyswietlLiczbe(); cout<<endl;
+	cout << g-c<<"   ";			(G-C).wyswietlLiczbe(); cout<<endl;
+	cout << a-e<<"   ";			(A-E).wyswietlLiczbe();  cout<<endl;
+	cout << f-g<<"   ";			(F-G).wyswietlLiczbe(); cout<<endl;
+	cout << o-i<<"   "; 			(O-I).wyswietlLiczbe(); cout<<endl;
+	cout << j-k<<"   ";			(J-K).wyswietlLiczbe(); cout<<endl;
+	cout << m-m<<"   ";			(M-M).wyswietlLiczbe(); cout<<endl;
+	cout << n-r<<"   "; 			(N-R).wyswietlLiczbe(); cout<<endl;
+	cout << l-b<<"   "; 			(L-B).wyswietlLiczbe(); cout<<endl;
+	cout << g-p<<"   "; 			(G-P).wyswietlLiczbe();cout<<endl;
+	cout << s-e<<"   ";			(S-E).wyswietlLiczbe(); cout<<endl;
+	cout << e-s<<"   ";			(E-S).wyswietlLiczbe(); cout<<endl;
+	cout << i-s<<"   "; 			(I-S).wyswietlLiczbe(); cout<<endl;
+	cout << e-h<<"   "; 			(E-H).wyswietlLiczbe(); cout<<endl;
+	cout << s-g<<"   "; 			(S-G).wyswietlLiczbe();cout<<endl;
+
+	cout << "---------------------mnozenie-----------------------" << endl;
+
+	cout << d*b <<"   "; 			(D*B).wyswietlLiczbe(); cout<<endl;
+	cout << g*c<<"   ";			(G*C).wyswietlLiczbe(); cout<<endl;
+	cout << a*e<<"   ";			(A*E).wyswietlLiczbe();  cout<<endl;
+	cout << f*g<<"   ";			(F*G).wyswietlLiczbe(); cout<<endl;
+	cout << o*i<<"   "; 			(O*I).wyswietlLiczbe(); cout<<endl;
+	cout << j*k<<"   ";			(J*K).wyswietlLiczbe(); cout<<endl;
+	cout << m*m<<"   ";			(M*M).wyswietlLiczbe(); cout<<endl;
+	cout << n*r<<"   "; 			(N*R).wyswietlLiczbe(); cout<<endl;
+	cout << l*b<<"   "; 			(L*B).wyswietlLiczbe(); cout<<endl;
+	cout << g*p<<"   "; 			(G*P).wyswietlLiczbe();cout<<endl;
+	cout << s*e<<"   ";			(S*E).wyswietlLiczbe(); cout<<endl;
+	cout << e*s<<"   ";			(E*S).wyswietlLiczbe(); cout<<endl;
+	cout << i*s<<"   "; 			(I*S).wyswietlLiczbe(); cout<<endl;
+	cout << e*h<<"   "; 			(E*H).wyswietlLiczbe(); cout<<endl;
+	cout << s*g<<"   "; 			(S*G).wyswietlLiczbe();cout<<endl;
+
+	cout << "--------------------dzielenie------------------------" << endl;
+
+	cout << d/b <<"   "; 			(D/B).wyswietlLiczbe(); cout<<endl;
+	cout << g/c<<"   ";			(G/C).wyswietlLiczbe(); cout<<endl;
+	cout << a/e<<"   ";			(A/E).wyswietlLiczbe();  cout<<endl;
+	cout << f/g<<"   ";			(F/G).wyswietlLiczbe(); cout<<endl;
+	cout << o/i<<"   "; 			(O/I).wyswietlLiczbe(); cout<<endl;
+	cout << j/k<<"   ";			(J/K).wyswietlLiczbe(); cout<<endl;
+	cout << m/m<<"   ";			(M/M).wyswietlLiczbe(); cout<<endl;
+	cout << n/r<<"   "; 			(N/R).wyswietlLiczbe(); cout<<endl;
+	cout << l/b<<"   "; 			(L/B).wyswietlLiczbe(); cout<<endl;
+	cout << g/p<<"   "; 			(G/P).wyswietlLiczbe();cout<<endl;
+	cout << s/e<<"   ";			(S/E).wyswietlLiczbe(); cout<<endl;
+	cout << e/s<<"   ";			(E/S).wyswietlLiczbe(); cout<<endl;
+	cout << i/s<<"   "; 			(I/S).wyswietlLiczbe(); cout<<endl;
+	cout << e/h<<"   "; 			(E/H).wyswietlLiczbe(); cout<<endl;
+	cout << s/g<<"   "; 			(S/G).wyswietlLiczbe();cout<<endl;
+}//main
+
+
+
 
 void wypiszMenu() {
 	int wybor=0;
@@ -29,115 +157,90 @@ void wypiszMenu() {
 			cin >> cecha2;
 			cout << "Podaj czesc ulamkowa drugiej liczby:" << endl;
 			cin >> mantysa2;
-			Liczba test_1(cecha1, mantysa1);
-			Liczba test_2(cecha2, mantysa2);
-			(test_1+test_2).wyswietlLiczbe();
+			Liczba liczba1(cecha1, mantysa1);
+			Liczba liczba2(cecha2, mantysa2);
+			Liczba wynik = liczba1+liczba2;
+			wynik.wyswietlLiczbe();
 			break;
+		}
+		case 2: {
+			cout << "Podaj czesc calkowita pierwszej liczby:" << endl;
+			cin >> cecha1;
+			cout << "Podaj czesc ulamkowa pierwszej liczby:" << endl;
+			cin >> mantysa1;
+			cout << "Podaj czesc calkowita drugiej liczby:" << endl;
+			cin >> cecha2;
+			cout << "Podaj czesc ulamkowa drugiej liczby:" << endl;
+			cin >> mantysa2;
+			Liczba liczba1(cecha1, mantysa1);
+			Liczba liczba2(cecha2, mantysa2);
+			Liczba wynik = liczba1-liczba2;
+			wynik.wyswietlLiczbe();
+		}
+		case 3: {
+			cout << "Podaj czesc calkowita pierwszej liczby:" << endl;
+			cin >> cecha1;
+			cout << "Podaj czesc ulamkowa pierwszej liczby:" << endl;
+			cin >> mantysa1;
+			cout << "Podaj czesc calkowita drugiej liczby:" << endl;
+			cin >> cecha2;
+			cout << "Podaj czesc ulamkowa drugiej liczby:" << endl;
+			cin >> mantysa2;
+			Liczba liczba1(cecha1, mantysa1);
+			Liczba liczba2(cecha2, mantysa2);
+			Liczba wynik = liczba1*liczba2;
+			wynik.wyswietlLiczbe();
+		}
+		case 4: {
+			cout << "Podaj czesc calkowita pierwszej liczby:" << endl;
+			cin >> cecha1;
+			cout << "Podaj czesc ulamkowa pierwszej liczby:" << endl;
+			cin >> mantysa1;
+			cout << "Podaj czesc calkowita drugiej liczby:" << endl;
+			cin >> cecha2;
+			cout << "Podaj czesc ulamkowa drugiej liczby:" << endl;
+			cin >> mantysa2;
+			Liczba liczba1(cecha1, mantysa1);
+			Liczba liczba2(cecha2, mantysa2);
+			Liczba wynik = liczba1/liczba2;
+			wynik.wyswietlLiczbe();
+		}
+		case 5: {
+			cout << "Podaj czesc calkowita pierwszej liczby:" << endl;
+			cin >> cecha1;
+			cout << "Podaj czesc ulamkowa pierwszej liczby:" << endl;
+			cin >> mantysa1;
+			cout << "Podaj czesc calkowita drugiej liczby:" << endl;
+			cin >> cecha2;
+			cout << "Podaj czesc ulamkowa drugiej liczby:" << endl;
+			cin >> mantysa2;
+			Liczba liczba1(cecha1, mantysa1);
+			Liczba liczba2(cecha2, mantysa2);
+			if(liczba1>liczba2) {
+				liczba1.wyswietlLiczbe(); 
+				cout<<" > "; 
+				liczba2.wyswietlLiczbe();
+			}
+			else if(liczba1<liczba2) {
+				liczba1.wyswietlLiczbe(); 
+				cout<<" < "; 
+				liczba2.wyswietlLiczbe();
+			}
+			else {
+				liczba1.wyswietlLiczbe(); 
+				cout<<" == "; 
+				liczba2.wyswietlLiczbe();
+			}
+			
 		}
 		case 9: {
 			menu=false;
 			break;
 		}
+		default: {
+			cout<< "Musisz podac numer odpowiadajacy danemu dzialaniu!"<<endl;
+		}
 	}
-}
-
-int main() {
-	//Liczba A(100,5);
-	//Liczba B(4,1);
-	//Liczba C = (A+B);
-	int x= -0;
-	cout<< x << endl;
-	Liczba A(2,5000);
-	Liczba B(1,2000);
-	Liczba C(1,7000);
-	Liczba D(0,1000);
-	Liczba E(0,9900);
-	Liczba F(1,200);
-	Liczba G(1,30);
-	Liczba H(-1,5000);
-	Liczba I(1,6000);
-	Liczba J(-1,1000);
-	Liczba K(-2,2000);
-	Liczba L(-1,3000);
-	Liczba M(-2,8000);
-	Liczba N(1,3000);
-	Liczba O(-1,8000);
-	Liczba P(1,8000);
-	Liczba R(-2,3000);
-	
-	
-	cout << "2,5000 +1,2000 =3,7      "; (A+B).wyswietlLiczbe(); 
-	cout << "2,5000 +1,7000 =4,2      ";(A+C).wyswietlLiczbe(); 
-	cout << "0,1000 +0,9900 =1,09     ";(D+E).wyswietlLiczbe();  
-	cout << "1,0200 +1,0030 =2,0230   ";(F+G).wyswietlLiczbe(); 
-	cout << "-1,5000 +1,6000 =0,1     "; (H+I).wyswietlLiczbe(); 
-	cout << "-1,1000 +-2,2000 =-3,3   ";(J+K).wyswietlLiczbe(); 
-	cout << "-1,3000 +-2,8000 =-4,1   ";(L+M).wyswietlLiczbe(); 
-	cout << "1,3000 +-1,8000 =-0,5    "; (N+O).wyswietlLiczbe(); 
-	cout << "-1,3000 + 1,8000=0,5     "; (L+P).wyswietlLiczbe(); 
-	cout << "-2,3000 + 1,8000=-0,5    "; (R+P).wyswietlLiczbe(); 
-	//while(menu) {
-	//	wypiszMenu();
-	//}
-
-	//cout << "Liczba A:  ";  A.wyswietlLiczbe();
-	//cout << "Liczba B:  ";  B.wyswietlLiczbe();
-	//cout << "A+B:  ";  C.wyswietlLiczbe();
-
-	cout << endl<<endl<<"2,5000 -1,2000 =1,3      "; (A-B).wyswietlLiczbe(); 
-	cout << "2,5000 -1,7000 =0,8      ";(A-C).wyswietlLiczbe(); 
-	cout << "0,1000 -0,9900 =-0,89     ";(D-E).wyswietlLiczbe();  
-	cout << "1,0200 -1,0030 =0,0170   ";(F-G).wyswietlLiczbe(); 
-
-	cout << "-1,1000 --2,2000 =1,1   ";(J-K).wyswietlLiczbe(); 
-	cout << "-1,3000 --2,8000 =1,5   ";(L-M).wyswietlLiczbe(); 
-
-	cout << endl<<endl<<"2,5000 *1,2000 =3      "; (A*B).wyswietlLiczbe(); 
-	cout << "2,5000 *1,7000 =4,25      ";(A*C).wyswietlLiczbe(); 
-	cout << "0,1000 *0,9900 =0,099     ";(D*E).wyswietlLiczbe();  
-	cout << "1,0200 *1,0030 =1,02306   ";(F*G).wyswietlLiczbe(); 
-
-	cout << "-1,1000 *-2,2000 =2,42   ";(J*K).wyswietlLiczbe(); 
-	cout << "-1,3000 *-2,8000 =3,64   ";(L*M).wyswietlLiczbe(); 
-	cout << "1,3000 *-1,8000 =-2,34    "; (N*O).wyswietlLiczbe(); 
-	cout << "-1,3000 * 1,8000=-2,34     "; (L*P).wyswietlLiczbe(); 
-	cout << "-2,3000 * 1,8000=-4,14    "; (R*P).wyswietlLiczbe(); 
-
-	if(A==B)
-		cout<<"rowne" << endl;
-	else
-		cout<<"rozne" << endl;
-	if(J==K)
-		cout<<"rowne" << endl;
-	else
-		cout<<"rozne" << endl;
-	if(O==O)
-		cout<<"rowne" << endl;
-	else
-		cout<<"rozne" << endl;
-
-	if(A>B)
-		cout<<"wieksze" << endl;
-	else
-		cout<<"mniejsze" << endl;
-	if(J>K)
-		cout<<"wieksze" << endl;
-	else
-		cout<<"mniejsze" << endl;
-	if(O>O)
-		cout<<"wieksze" << endl;
-	else
-		cout<<"mniejsze" << endl;
-
-	cout << "2,5000 /1,7000 =1,4705      ";(A/C).wyswietlLiczbe(); 
-	cout << "0,1000 /0,9900 =0,(10)     ";(D/E).wyswietlLiczbe();  
-	cout << "1,0200 /1,0030 =1,0169   ";(F/G).wyswietlLiczbe(); 
-
-	cout << "-1,1000 /-2,2000 =0,5   ";(J/K).wyswietlLiczbe(); 
-	cout << "-1,3000 /-2,8000 =0,4642   ";(L/M).wyswietlLiczbe(); 
-	cout << "1,3000 /-1,8000 =-0,7222    "; (N/O).wyswietlLiczbe(); 
-	cout << "-1,3000 / 1,8000=0,7222     "; (L/P).wyswietlLiczbe(); 
-	cout << "-2,3000 / 1,8000=1,27777    "; (R/P).wyswietlLiczbe(); 
 }
 
 
