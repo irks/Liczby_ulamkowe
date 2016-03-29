@@ -1,3 +1,6 @@
+// Wrobel Ireneusz, Informatyka, grupa 2I5 
+// Program interaktywny demonstrujacy mozliwosci klasy Liczba
+
 #include <iostream>
 #include <limits>
 #include "Liczba.h"
@@ -8,7 +11,7 @@ extern const int PRECYZJA; //stala okreslajaca liczbe cyfr po przecinku
 extern const int POT_10_PRECYZJA; // 10 podniesione do potegi PRECYZJA
 
 bool menu = true;
-Liczba pobranieLiczby(bool czyPierwszaLiczba ); //funkcja odpowiadajaca za wczytanie od uzytkownika liczby
+Liczba pobranieLiczby( bool czyPierwszaLiczba ); //funkcja odpowiadajaca za wczytanie od uzytkownika liczby
 
 int main() {
 	int wybor;
@@ -100,8 +103,8 @@ Liczba pobranieLiczby( bool czyPierwszaLiczba ) {
 
 	cin >> cecha;
 	while( cin.fail() ) { //sprawdzanie poprawnosci wprowadzonej wartosci
-        cin.clear();
-        cin.ignore( numeric_limits<streamsize>::max(),'\n' );
+        cin.clear(); //czyszczenie flagi bledu
+        cin.ignore( numeric_limits<streamsize>::max(),'\n' ); //czyszczenie bufora
         cout << "Musisz wprowadzic liczbe!" << endl;
         cout << "Wprowadz liczbe jeszcze raz: ";
         cin >> cecha;
@@ -114,8 +117,8 @@ Liczba pobranieLiczby( bool czyPierwszaLiczba ) {
 
     cin >> mantysa;
     while( cin.fail() ) { //sprawdzanie poprawnosci wprowadzonej wartosci
-        cin.clear();
-        cin.ignore( numeric_limits<streamsize>::max(),'\n');
+        cin.clear(); //czyszczenie flagi bledu
+        cin.ignore( numeric_limits<streamsize>::max(),'\n'); //czyszczenie bufora
         cout << "Musisz wprowadzic liczbe!" << endl;
         cout << "Wprowadz liczbe jeszcze raz: ";
         cin >> mantysa;
