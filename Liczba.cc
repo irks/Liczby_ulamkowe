@@ -1,3 +1,6 @@
+// Wrobel Ireneusz, Informatyka, grupa 2I5 
+// Operatory oraz funkcja wyswietlajaca klasy Liczba
+
 #include <iostream>
 #include <cmath>
 #include <iomanip> //potrzebne przy wyswietlaniu Liczb
