@@ -6,8 +6,8 @@ extern const int POT_10_PRECYZJA; // 10 podniesione do potegi PRECYZJA
 
 class Liczba 
 { //domyslnie private
-	int calkowita;
-	int ulamkowa;
+	int calkowita_;
+	int ulamkowa_;
 
 	public:
 		Liczba( int=0, int=0 );
