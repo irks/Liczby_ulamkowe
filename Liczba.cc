@@ -6,26 +6,26 @@
 #include <iomanip> //potrzebne przy wyswietlaniu Liczb
 #include "Liczba.h"
 
-const int PRECYZJA=4; //stala okreslajaca liczbe cyfr po przecinku
+const int PRECYZJA = 4; //stala okreslajaca liczbe cyfr po przecinku
 const int POT_10_PRECYZJA = pow(10, PRECYZJA); // 10 podniesione do potegi PRECYZJA
 
 void inkrementacjaDekrementacjaCechy( bool, int &, int & );
 
 Liczba::Liczba( int cecha, int mantysa ) {
-	calkowita = cecha;
-	ulamkowa = mantysa;
-};//konstruktor
+	calkowita_ = cecha;
+	ulamkowa_ = mantysa;
+}//konstruktor
 
 void Liczba::wyswietlLiczbe() {
-	if( ulamkowa < 0 || calkowita < 0 ) { //liczba ujemna
-		std::cout << "-" << -calkowita << '.' << std::setfill('0'); 
-		std::cout << std::setw(PRECYZJA) << -ulamkowa;
+	if( ulamkowa_ < 0 || calkowita_ < 0 ) { //liczba ujemna
+		std::cout << "-" << -calkowita_ << '.' << std::setfill('0'); 
+		std::cout << std::setw(PRECYZJA) << -ulamkowa_;
 	}
 	else { //liczba dodatnia albo zero
-		std::cout << calkowita << '.' << std::setfill('0'); 
-		std::cout << std::setw(PRECYZJA) << ulamkowa;
+		std::cout << calkowita_ << '.' << std::setfill('0'); 
+		std::cout << std::setw(PRECYZJA) << ulamkowa_;
 	}	
-};
+}
 
 void inkrementacjaDekrementacjaCechy(bool czyZwiekszycCeche, int &cecha, int &mantysa) {
 	if(czyZwiekszycCeche) {
@@ -41,21 +41,21 @@ void inkrementacjaDekrementacjaCechy(bool czyZwiekszycCeche, int &cecha, int &ma
 // friend operatory
 
 Liczba operator-( const Liczba& liczba ) {
-	return Liczba( -(liczba.calkowita), -(liczba.ulamkowa) );
+	return Liczba( -(liczba.calkowita_), -(liczba.ulamkowa_) );
 }//wyznacznie liczby przeciwnej
 
 Liczba &Liczba::operator=( const Liczba& liczba ) {
-	this->calkowita = liczba.calkowita;
-	this->ulamkowa = liczba.ulamkowa;
+	calkowita_ = liczba.calkowita_;
+	ulamkowa_ = liczba.ulamkowa_;
 }//operator przypisania
 
 Liczba operator+( const Liczba& pierwsza, const Liczba& druga ) {
-	int cecha = pierwsza.calkowita + druga.calkowita;
+	int cecha = pierwsza.calkowita_ + druga.calkowita_;
 	int mantysa;
-	mantysa = pierwsza.ulamkowa + druga.ulamkowa;
+	mantysa = pierwsza.ulamkowa_ + druga.ulamkowa_;
 
-	if( pierwsza.calkowita < 0 || pierwsza.ulamkowa < 0 ) { //pierwsza liczba ujemna
-		if( druga.calkowita < 0 || druga.ulamkowa < 0 ) { //druga liczba ujemna
+	if( pierwsza.calkowita_ < 0 || pierwsza.ulamkowa_ < 0 ) { //pierwsza liczba ujemna
+		if( druga.calkowita_ < 0 || druga.ulamkowa_ < 0 ) { //druga liczba ujemna
 			if( mantysa <= ( -POT_10_PRECYZJA ) )  //sprawdzanie czy potrzebne jest przeniesienie
 				inkrementacjaDekrementacjaCechy( false, cecha, mantysa );
 		}
@@ -67,7 +67,7 @@ Liczba operator+( const Liczba& pierwsza, const Liczba& druga ) {
 		}
 	}
 	else  { //pierwsza liczba jest dodatnia albo zerem
-		if( druga.calkowita < 0 || druga.ulamkowa < 0 ) { //druga liczba jest ujemna 
+		if( druga.calkowita_ < 0 || druga.ulamkowa_ < 0 ) { //druga liczba jest ujemna 
 			if( mantysa < 0 && cecha > 0 )  //sprawdzanie czy cecha nie ma innego znaku niz mantysa
 				inkrementacjaDekrementacjaCechy( false, cecha,  mantysa );
 			else if( mantysa > 0 && cecha < 0 )  //sprawdzanie czy cecha nie ma innego znaku niz mantysa
@@ -87,18 +87,29 @@ Liczba operator-( const Liczba& odjemna, const Liczba& odjemnik ) {
 }
 
 Liczba operator*( const Liczba& pierwsza, const Liczba& druga ) {
-	int sumaPierwszej = pierwsza.calkowita * POT_10_PRECYZJA + pierwsza.ulamkowa; 
-	int sumaDrugiej = druga.calkowita * POT_10_PRECYZJA + druga.ulamkowa; //zapisanie Liczby jako suma czesci calkowitej z odpowiednią waga i ulamkowej
-	int iloczynSum = sumaPierwszej * sumaDrugiej; 
-	int cecha = ( iloczynSum / POT_10_PRECYZJA ) / POT_10_PRECYZJA; //wyznaczenie cechy poprzez "skrocenie" iloczynu sum o 2*PRECYZJA cyfr
-	int mantysa =  iloczynSum / POT_10_PRECYZJA; 
-	mantysa %= POT_10_PRECYZJA; //mantysa jako modulo 10^PRECYZJA 
+	int cecha;
+	int mantysa;
+	int ulamkowaRazyUlamkowa = pierwsza.ulamkowa_ * druga.ulamkowa_;
+	int calkowitaRazyUlamkowa = pierwsza.calkowita_ * druga.ulamkowa_;
+	int ulamkowaRazyCalkowita = pierwsza.ulamkowa_ * druga.calkowita_;
+	cecha = pierwsza.calkowita_ * druga.calkowita_;
+
+	mantysa = ulamkowaRazyUlamkowa % ( POT_10_PRECYZJA * POT_10_PRECYZJA );
+	mantysa /= POT_10_PRECYZJA;
+	cecha += ulamkowaRazyUlamkowa / ( POT_10_PRECYZJA * POT_10_PRECYZJA ); //sprawdzanie czy potrzebne jest przeniesienie do czesci calkowitej
+
+	cecha += calkowitaRazyUlamkowa / POT_10_PRECYZJA; //sprawdzanie czy potrzebne jest przeniesienie do czesci calkowitej
+	mantysa += calkowitaRazyUlamkowa % POT_10_PRECYZJA;
+
+	cecha += ulamkowaRazyCalkowita / POT_10_PRECYZJA; //sprawdzanie czy potrzebne jest przeniesienie do czesci calkowitej
+	mantysa += ulamkowaRazyCalkowita % POT_10_PRECYZJA;
+
 	return Liczba( cecha, mantysa );
 }
 
 Liczba operator/( const Liczba& pierwsza, const Liczba& druga ) {
-	int sumaPierwszej = pierwsza.calkowita * POT_10_PRECYZJA + pierwsza.ulamkowa;
-	int sumaDrugiej = druga.calkowita * POT_10_PRECYZJA + druga.ulamkowa; //zapisanie Liczby jako suma czesci calkowitej z odpowiednią waga i ulamkowej
+	int sumaPierwszej = pierwsza.calkowita_ * POT_10_PRECYZJA + pierwsza.ulamkowa_;
+	int sumaDrugiej = druga.calkowita_ * POT_10_PRECYZJA + druga.ulamkowa_; //zapisanie Liczby jako suma czesci calkowitej z odpowiednią waga i ulamkowej
 	int cecha = sumaPierwszej / sumaDrugiej; //typ int, reszta zostanie ucieta
 	int mantysaModulo= sumaPierwszej % sumaDrugiej; //"reszta" z dzielenie dwoch liczb
 	int mantysa = ( mantysaModulo * POT_10_PRECYZJA ) / sumaDrugiej; //wyznaczenie jaka czescia liczby przez ktora dzielimy jest "reszta" z dzielenia 2 liczb
@@ -106,16 +117,16 @@ Liczba operator/( const Liczba& pierwsza, const Liczba& druga ) {
 }
 
 bool operator==( const Liczba& pierwsza, const Liczba& druga ) {
-	if( pierwsza.calkowita == druga.calkowita && pierwsza.ulamkowa == druga.ulamkowa)
+	if( pierwsza.calkowita_ == druga.calkowita_ && pierwsza.ulamkowa_ == druga.ulamkowa_ )
 		return true;
 	else
 		return false;
 }
 
 bool operator>( const Liczba& pierwsza, const Liczba& druga ) {
-	if( pierwsza.calkowita >= 0 && pierwsza.ulamkowa >= 0 ) { //pierwsza dodatnia albo zero
-		if( druga.calkowita >= 0 && druga.ulamkowa >= 0 ) { //druga dodatnia albo zero
-			if( pierwsza.calkowita >= druga.calkowita && pierwsza.ulamkowa > druga.ulamkowa )
+	if( pierwsza.calkowita_ >= 0 && pierwsza.ulamkowa_ >= 0 ) { //pierwsza dodatnia albo zero
+		if( druga.calkowita_ >= 0 && druga.ulamkowa_ >= 0 ) { //druga dodatnia albo zero
+			if( pierwsza.calkowita_ >= druga.calkowita_ && pierwsza.ulamkowa_ > druga.ulamkowa_ )
 				return true;
 			else
 				return false; 
@@ -124,8 +135,8 @@ bool operator>( const Liczba& pierwsza, const Liczba& druga ) {
 			return true;
 	}
 	else { //pierwsza ujemna
-		if( druga.calkowita < 0 || druga.ulamkowa < 0 ) { //druga ujemna
-			if( pierwsza.calkowita >= druga.calkowita && pierwsza.ulamkowa > druga.ulamkowa )
+		if( druga.calkowita_ < 0 || druga.ulamkowa_ < 0 ) { //druga ujemna
+			if( pierwsza.calkowita_ >= druga.calkowita_ && pierwsza.ulamkowa_ > druga.ulamkowa_ )
 				return true;
 			else
 				return false;
@@ -136,8 +147,5 @@ bool operator>( const Liczba& pierwsza, const Liczba& druga ) {
 }
 
 bool operator<( const Liczba& pierwsza, const Liczba& druga ) {
-	if( druga > pierwsza )
-		return true;
-	else
-		return false;
+	return druga > pierwsza;
 }
