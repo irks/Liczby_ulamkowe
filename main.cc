@@ -44,26 +44,24 @@ int main() {
 			cout << endl;
 		}
 
-		for( int i = 0; i < 60; i++ )
+		for( int i = 0; i < 60; ++i )
 			cout << endl; //czyszczenie ekranu
 
 		switch( wybor ) {
-			case 1: { 
+			case 1: 
 				wynik = liczba1 + liczba2;
 				cout << "Wynik: "; wynik.wyswietlLiczbe(); cout << endl; 
 				break; 
-			}
-			case 2: { 
+			
+			case 2: 
 				wynik = liczba1 - liczba2;
 				cout << "Wynik: "; wynik.wyswietlLiczbe(); cout << endl; 
 				break; 
-			}
-			case 3: { 
+			case 3:  
 				wynik = liczba1 * liczba2;
 				cout << "Wynik: "; wynik.wyswietlLiczbe(); cout << endl; 
 				break; 
-			}
-			case 4: { 
+			case 4:  
 				if( liczba2 == 0.0 ) {
 					cout<< "Dzielenie przez zero jest niedozwolone!" << endl;
 					break;
@@ -71,23 +69,23 @@ int main() {
 				wynik = liczba1 / liczba2;
 				cout << "Wynik: "; wynik.wyswietlLiczbe(); cout << endl; 
 				break; 
-			}
-			case 5: {
+			case 5: 
 				liczba1.wyswietlLiczbe(); 
 
 				if( liczba1 > liczba2 ) 
 					cout << " > "; 
-				else if( liczba1 < liczba2 ) 	
-					cout << " < "; 
-				else
+				else if( liczba1 == liczba2 ) 	
 					cout << " == "; 
+				else
+					cout << " < "; 
 
 				liczba2.wyswietlLiczbe();
 				cout << endl;
-				break;
-			}
-			case 9: { break; }
-			default: { cout << "Musisz podac numer odpowiadajacy danemu dzialaniu!" << endl; }
+				break;	
+			case 9:  
+				break; 
+			default:  
+				cout << "Musisz podac numer odpowiadajacy danemu dzialaniu!" << endl; 
 		}
 	}	
 }//main
@@ -103,34 +101,34 @@ Liczba pobranieLiczby( bool czyPierwszaLiczba ) {
 
 	cin >> cecha;
 	while( cin.fail() ) { //sprawdzanie poprawnosci wprowadzonej wartosci
-        cin.clear(); //czyszczenie flagi bledu
-        cin.ignore( numeric_limits<streamsize>::max(),'\n' ); //czyszczenie bufora
-        cout << "Musisz wprowadzic liczbe!" << endl;
-        cout << "Wprowadz liczbe jeszcze raz: ";
-        cin >> cecha;
-    }
+		cin.clear(); //czyszczenie flagi bledu
+		cin.ignore( numeric_limits<streamsize>::max(),'\n' ); //czyszczenie bufora
+		cout << "Musisz wprowadzic liczbe!" << endl;
+		cout << "Wprowadz liczbe jeszcze raz: ";
+		cin >> cecha;
+	}
 
-    if( czyPierwszaLiczba )
+	if( czyPierwszaLiczba )
 		cout << "Wprowadz czesc ulamkowa pierwszej liczby" << endl;
 	else //pobieranie drugiej liczby
 		cout << "Wprowadz czesc ulamkowa drugiej liczby" << endl;
 
-    cin >> mantysa;
-    while( cin.fail() ) { //sprawdzanie poprawnosci wprowadzonej wartosci
-        cin.clear(); //czyszczenie flagi bledu
-        cin.ignore( numeric_limits<streamsize>::max(),'\n'); //czyszczenie bufora
-        cout << "Musisz wprowadzic liczbe!" << endl;
-        cout << "Wprowadz liczbe jeszcze raz: ";
-        cin >> mantysa;
-    }
+	cin >> mantysa;
+    	while( cin.fail() ) { //sprawdzanie poprawnosci wprowadzonej wartosci
+		cin.clear(); //czyszczenie flagi bledu
+		cin.ignore( numeric_limits<streamsize>::max(),'\n'); //czyszczenie bufora
+		cout << "Musisz wprowadzic liczbe!" << endl;
+		cout << "Wprowadz liczbe jeszcze raz: ";
+		cin >> mantysa;
+    	}
 
-    if( cecha < 0 && mantysa > 0) //jezeli czesc calkowita jest ujemna a ulamkowa dodatnia
-    	mantysa = -mantysa; //minus jest przechowywany w czesci calkowitej i ulamkowej
-    else if(cecha > 0 && mantysa < 0) //jezeli czesc calkowita jest dodatnia a ulamkowa ujemna
-    	cecha = -cecha; //minus jest przechowywany w czesci calkowitej i ulamkowej
+	if( cecha < 0 && mantysa > 0) //jezeli czesc calkowita jest ujemna a ulamkowa dodatnia
+    		mantysa = -mantysa; //minus jest przechowywany w czesci calkowitej i ulamkowej
+    	else if( cecha > 0 && mantysa < 0) //jezeli czesc calkowita jest dodatnia a ulamkowa ujemna
+    		cecha = -cecha; //minus jest przechowywany w czesci calkowitej i ulamkowej
 
-    while( mantysa >= POT_10_PRECYZJA || mantysa <= -POT_10_PRECYZJA ) 
-    	mantysa /= 10; //jezeli czesc calkowita wychodzi poza zakres PRECYZJI ucinanie mniej znaczacych cyfr
+    	while( mantysa >= POT_10_PRECYZJA || mantysa <= -POT_10_PRECYZJA ) 
+    		mantysa /= 10; //jezeli czesc calkowita wychodzi poza zakres PRECYZJI ucinanie mniej znaczacych cyfr
 
 	return Liczba(cecha,mantysa);
 }//pobranieLiczby
